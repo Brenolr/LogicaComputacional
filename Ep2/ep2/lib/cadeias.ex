@@ -60,7 +60,7 @@ defmodule Cadeias do
     foo = fn l, acc ->
       if not is_nil(l) do
         if not is_nil(acc) do
-          MapSet.union( MapSet.new(l), acc )
+          MapSet.union( MapSet.new(l), MapSet.new(acc) )
         else
           MapSet.union( MapSet.new(l), MapSet.new([]) )
         end
@@ -103,9 +103,35 @@ defmodule Cadeias do
 
 end
 
+############################################
+# test 1 (free style)
+############################################
 grammar = [["A", "Aa"],["B", "b"],["C", "c"], ["A", "a"]]
 list = ["ABc", "BBa", "CCaB"]
 
-IO.inspect(grammar)
-IO.inspect(list)
-IO.inspect(Cadeias.generate_vocab(MapSet.new(list), grammar, 7, 0))
+vocab = Cadeias.generate_vocab(MapSet.new(list), grammar, 4, 0)
+expected_vocab = ["aabc", "abc", "bba", "ccab"]
+
+IO.inspect(if vocab == expected_vocab do "test1 ok" else "test1 not ok" end)
+
+############################################
+# test 2 (atividade 4 - ex 1.a - LogComp)
+############################################
+grammar = [["S", "aAS"],["S", "a"],["A", "SbA"], ["A", "ba"], ["A", "SS"]]
+list = ["S"]
+
+vocab = Cadeias.generate_vocab(MapSet.new(list), grammar, 4, 0)
+expected_vocab = ["abaa"]
+
+IO.inspect(if vocab == expected_vocab do "test2 ok" else "test2 not ok" end)
+
+############################################
+# test 2 (atividade 4 - ex 1.b - LogComp)
+############################################
+grammar = [["S", "aAS"],["S", "a"],["A", "SbA"], ["A", "ba"], ["A", "SS"]]
+list = ["S"]
+
+vocab = Cadeias.generate_vocab(MapSet.new(list), grammar, 4, 0)
+expected_vocab = ["a"]
+
+IO.inspect(if vocab == expected_vocab do "test3 ok" else "test3 not ok" end)
