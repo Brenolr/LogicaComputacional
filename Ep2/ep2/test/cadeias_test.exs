@@ -1,18 +1,41 @@
 defmodule CadeiasTest do
   use ExUnit.Case
   doctest Cadeias
-  ExUnit.start()
 
-  test "greets the world" do
-    assert Cadeias.hello() == :world
+  test "Caso de Testes 01" do
+    grammar = [["S", "aAS"],["S", "a"],["A", "SbA"], ["A", "ba"], ["A", "SS"]]
+    inicial = ["S"]
+    sequence = "abaa"
+    assert Cadeias.find_word_on_vocab(inicial,grammar,sequence) == true
   end
-
-  test "test1" do
+  test "Caso de Testes 02" do
+    grammar = [["S", "aAS"],["S", "a"],["A", "SbA"], ["A", "ba"], ["A", "SS"]]
+    inicial = ["S"]
+    sequence = "a"
+    assert Cadeias.find_word_on_vocab(inicial,grammar,sequence) == true
+  end
+  test "Caso de Testes 03" do
+    grammar = [["S", "aAS"],["S", "a"],["A", "SbA"], ["A", "ba"], ["A", "SS"]]
+    inicial = ["S"]
+    sequence = "abbb"
+    assert Cadeias.find_word_on_vocab(inicial,grammar,sequence) == false
+  end
+  test "Caso de Testes 04" do
     grammar = [["A", "Aa"],["B", "b"],["C", "c"], ["A", "a"]]
-    list = ["ABc", "BBa", "CCaB"]
-
-    vocab = Cadeias.generate_vocab(MapSet.new(list), grammar, 4, 0)
-
-    assert vocab == ["aabc", "abc", "bba", "ccab"]
+    inicial = ["A"]
+    sequence = "aaa"
+    assert Cadeias.find_word_on_vocab(inicial,grammar,sequence) == true
+  end
+  test "Caso de Testes 05" do
+    grammar = [["A", "Aa"],["B", "b"],["C", "c"], ["A", "a"]]
+    inicial = ["A"]
+    sequence = "aaaaaa"
+    assert Cadeias.find_word_on_vocab(inicial,grammar,sequence) == true
+  end
+  test "Caso de Testes 06" do
+    grammar = [["A", "Aa"],["B", "b"],["C", "c"], ["A", "a"]]
+    inicial = ["A"]
+    sequence = "abbb"
+    assert Cadeias.find_word_on_vocab(inicial,grammar,sequence) == false
   end
 end
