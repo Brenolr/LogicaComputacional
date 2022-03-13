@@ -106,6 +106,8 @@ end
 ############################################
 # test 1 (free style)
 ############################################
+IO.inspect("==============================")
+
 grammar = [["A", "Aa"],["B", "b"],["C", "c"], ["A", "a"]]
 list = ["ABc", "BBa", "CCaB"]
 
@@ -113,21 +115,35 @@ vocab = Cadeias.generate_vocab(MapSet.new(list), grammar, 4, 0)
 expected_vocab = ["aabc", "abc", "bba", "ccab"]
 
 IO.inspect(if vocab == expected_vocab do "test1 ok" else "test1 not ok" end)
+IO.inspect("expected: ")
+IO.inspect(expected_vocab)
+
+IO.inspect("received: ")
+IO.inspect(vocab)
 
 ############################################
 # test 2 (atividade 4 - ex 1.a - LogComp)
 ############################################
+IO.inspect("==============================")
+
 grammar = [["S", "aAS"],["S", "a"],["A", "SbA"], ["A", "ba"], ["A", "SS"]]
 list = ["S"]
 
 vocab = Cadeias.generate_vocab(MapSet.new(list), grammar, 4, 0)
-expected_vocab = ["abaa"]
+expected_vocab = ["abaa", "aaaa", "a"]
 
 IO.inspect(if vocab == expected_vocab do "test2 ok" else "test2 not ok" end)
+IO.inspect("expected: ")
+IO.inspect(expected_vocab)
+
+IO.inspect("received: ")
+IO.inspect(vocab)
 
 ############################################
 # test 2 (atividade 4 - ex 1.b - LogComp)
 ############################################
+IO.inspect("==============================")
+
 grammar = [["S", "aAS"],["S", "a"],["A", "SbA"], ["A", "ba"], ["A", "SS"]]
 list = ["S"]
 
@@ -135,3 +151,8 @@ vocab = Cadeias.generate_vocab(MapSet.new(list), grammar, 4, 0)
 expected_vocab = ["a"]
 
 IO.inspect(if vocab == expected_vocab do "test3 ok" else "test3 not ok" end)
+IO.inspect("expected: ")
+IO.inspect(expected_vocab)
+
+IO.inspect("received: ")
+IO.inspect(vocab)
