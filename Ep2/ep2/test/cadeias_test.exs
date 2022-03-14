@@ -2,6 +2,7 @@ defmodule CadeiasTest do
   use ExUnit.Case
   doctest Cadeias
 
+  #Os "== true" poderiam vazios e "refute" ao invez de "assert" para falsos, mas deixamos dessa forma por clareza
   test "Caso de Testes 01" do
     grammar = [["S", "aAS"],["S", "a"],["A", "SbA"], ["A", "ba"], ["A", "SS"]]
     inicial = ["S"]

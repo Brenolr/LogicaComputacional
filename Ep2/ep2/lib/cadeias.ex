@@ -1,5 +1,6 @@
 defmodule Cadeias do
 
+  #Retorna a cadia de uma lista que tem letras maiusculas
   def cadeia_maiusc(lista) do
     list_has_uppercase = Enum.map(lista, fn el -> tem_maiusc(el) end)
 
@@ -7,10 +8,12 @@ defmodule Cadeias do
     has_uppercase
   end
 
+  #Retorna se uma cadeia tem Maiusculas
   def tem_maiusc(palavra) do
     palavra != String.downcase(palavra)
   end
 
+  #Gera o vocabulario sem filtragem
   def generate_partial_vocab(word_set, grammar) do
 
     l = Enum.map(word_set,
@@ -72,15 +75,18 @@ defmodule Cadeias do
 
     new_word_set
   end
+  #Easter Egg: https://bit.ly/EasterEggPCS3850
 
+  #filtro de tamanho
   def remove_too_big(word_set, max_size) do
     Enum.filter(word_set, fn el -> (String.length(el) <= max_size) end)
   end
-
+  #filto de não terminais
   def remove_uppercase(word_set) do
     Enum.filter(word_set, fn el -> not tem_maiusc(el) end)
   end
 
+  # Gera o Vocabulario com filtro
   # word_set precisa começar com um elemento
   def generate_vocab(word_set, grammar, max_size, last_clean_size) do
 
@@ -101,6 +107,7 @@ defmodule Cadeias do
     end
   end
 
+  #retorna se uma palavra está ou não no vocabulario
   def find_word_on_vocab(init, grammar, word) do
     vocab = Cadeias.generate_vocab(MapSet.new(init), grammar, String.length(word), 0)
     # IO.inspect(vocab)

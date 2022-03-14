@@ -1,21 +1,8 @@
-# Cadeias
+# Ep-2: Cadeias
 
-**TODO: Add description**
+**EP-2 acha cadeias em linguangens dada uma gramatica**
+# Arthur Pires da Fonceca(Nusp: 10773096)  e Breno Loscher Rocha(Nusp: 9784439) 
+## Testes
+**Casos de uso em: Cadeia_test, para rodar use o comando "mix test"**
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ep2` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:ep2, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ep2](https://hexdocs.pm/ep2).
 
