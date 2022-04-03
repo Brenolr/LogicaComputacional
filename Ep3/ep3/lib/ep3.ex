@@ -28,7 +28,7 @@ defmodule Machines do
 end
 
 tape = [:b]
+}
 state_graph = %{p: %{a: [:p], b: [:p, :q], is_accept_state: false},
-                 q: %{a: [:q], b: [:q], is_accept_state: true}
-                }
-IO.inspect(Machines.nonDeterministicMachine(tape, state_graph, :p, 0))
+                q: %{a: [:q], b: [:q], is_accept_state: true}
+Machines.nonDeterministicMachine(tape, state_graph, :p, 0)
